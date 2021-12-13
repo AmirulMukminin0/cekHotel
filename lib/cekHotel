@@ -1,0 +1,38 @@
+select * from customer
+
+drop table hotel
+
+create table hotel(
+	id_hotel smallserial not null,
+	nama_hotel varchar(15) not null,
+	alamat_hotel varchar(30) not null,
+	no_telp_hotel varchar(12) not null
+);
+
+create table customer(
+	id_customer smallserial primary key,
+	nama_customer varchar(30) not null,
+	alamat_customer varchar(30) not null,
+	no_hp varchar(12) not null
+);
+
+create table detail_hotel(
+	jumlah_kamar integer not null
+);
+
+create table transaksi(
+	id_transaksi smallserial primary key,
+	total_biaya varchar(15) not null,
+	uang_terima varchar(30) not null,
+	uang_kembali varchar(12) not null
+);
+
+create table jenis_kamar(
+	harga_jenis integer not null,
+	nama_jenis varchar(12) not null
+);
+
+create table fasilitas_kamar(
+	pelayanan_kamar varchar (12) not null,
+	view_kamar varchar(12) not null
+);
