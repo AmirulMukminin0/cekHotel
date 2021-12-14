@@ -1,0 +1,108 @@
+create table Penginapan(
+	penginapan_id smallserial primary key,
+	namaPenginapan varchar(30) not null,
+	noTelpPenginapan varchar(13) not null,
+	alamatPenginapan varchar(50) not null,
+	kabupatenPenginapan varchar(25) not null,
+	provinsiPenginapan varchar(25) not null
+)
+insert into Penginapan(namaPenginapan, noTelpPenginapan, alamatPenginapan, kabupatenPenginapan, provinsiPenginapan)
+values ('deLight','0341420010','Jl. Diponegoro No.11','Kota Batu','Jawa Timur')
+select * from Penginapan
+
+-2-
+create table detailHotel(
+	detailHotel_id smallserial primary key,
+	lamaMenginap int not null,
+	nomorKamar int not null,
+	jenisKamar_jenisKamar_id int not null,
+	fasilitasKamar_fasilitasKamar_id int not null,
+	customer_customer_id int not null,
+	cs_cs_id int not null,
+	constraint jenisKamar_jenisKamar_id foreign key(jenisKamar_jenisKamar_id) references jenisKamar(jenisKamar_id),
+	constraint fasilitasKamar_fasilitasKamar_id foreign key(fasilitasKamar_fasilitasKamar_id) references fasilitasKamar(fasilitasKamar_id),
+	constraint customer_customer_id foreign key (customer_customer_id) references customer(customer_id),
+	constraint cs_cs_id foreign key(cs_cs_id) references customerService(cs_id)
+);
+
+drop table detailHotel
+select * from detailHotel
+
+-3-
+create table jenisKamar(
+	jenisKamar_id smallserial primary key,
+	namaJenis varchar(15) not null,
+	hargaJenis float not null
+)
+insert into jenisKamar(namaJenis, hargaJenis)
+values ('singleRoom','500000'),('doubleRoom','750000')
+select * from jenisKamar
+drop table jenisKamar
+
+-4-
+create table singleRoom(
+	singleRoom_id smallserial primary key,
+	namaJenis varchar(15) not null,
+	hargaJenis int not null
+)
+insert into singleRoom(namaJenis, hargaJenis)
+values ('singleRoom',500000)
+select * from singleRoom
+
+-5-
+create table doubleRoom(
+	doubleRoom_id smallserial primary key,
+	namaJenis varchar(15) not null,
+	hargaJenis int not null
+)
+insert into doubleRoom(namaJenis, hargaJenis)
+values ('doubleRoom',750000)
+select * from doubleRoom
+
+-6-
+create table fasilitasKamar(
+	fasilitasKamar_id smallserial primary key,
+	namaFasilitasKamar varchar(60) not null,
+	viewKamar varchar(50) not null
+)
+insert into fasilitasKamar(namaFasilitasKamar, viewKamar)
+values ('Meja, Kasur, Kulkas, TV','Jalan Raya'),('Kasur, AC, Kamar Mandi, TV, Kulkas','Kolam Renang')
+select * from fasilitasKamar
+drop table fasilitasKamar
+-7-
+create table Customer(
+	customer_id smallserial primary key,
+	namaCustomer varchar(30) not null,
+	noHp varchar(13) not null,
+	alamatCustomer varchar(50)
+)
+drop table Customer
+select * from Customer
+delete  from customer where customer_id > 1
+-8-
+create table customerService(
+	Cs_id smallserial primary key,
+	namaCs varchar(30) not null,
+	Username varchar(16) not null,
+	Password varchar(16) not null,
+	email varchar(50) not null,
+	noTelpn varchar(13)
+)
+select * from customerService
+drop table customerService
+-9-
+create table Transaksi(
+	transaksi_id smallserial primary key,
+	uangTerima float not null,
+	uangKembali float
+)
+
+drop table Transaksi
+select * from transaksi
+
+Select * from customer join detailHotel on customer.customer_id = detailHotel.customer_customer_id 
+join customerService on customerService.Cs_id = detailHotel.cs_cs_id where customer_id = ?
+
+Select customerService.namaCs, customer.namaCustomer, noHp from customer join detailHotel on customer.customer_id = detailHotel.customer_customer_id join customerService on customerService.Cs_id = detailHotel.cs_cs_id where detailHotel.customer_customer_id = 20;
+Select customerService.namacs, customer.namacustomer, nohp, jenisKamar.namaJenis from customer join detailHotel on customer.customer_id = detailHotel.customer_customer_id join customerService on customerService.Cs_id = detailHotel.cs_cs_id join jenisKamar on jenisKamar.jenisKamar_id = detailHotel.jenisKamar_jenisKamar_id where Customer.customer_id = 27;
+SELECT customerService.namacs, customer.namacustomer, nohp, jenisKamar.namaJenis FROM customer JOIN detailHotel ON customer.customer_id = detailHotel.customer_customer_id JOIN customerService ON customerService.Cs_id = detailHotel.cs_cs_id JOIN jenisKamar ON jenisKamar.jenisKamar_id = detailHotel.jenisKamar_jenisKamar_id WHERE DetailHotel.customer_customer_id = 20;
