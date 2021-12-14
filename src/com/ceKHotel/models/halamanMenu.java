@@ -13,25 +13,23 @@ public class halamanMenu {
         System.out.println("======================================================");
         System.out.print("\nMENU: \n1. Menambah Data Pesanan Hotel deLight \n2. Melihat Data Riwayat Pesanan Hotel deLight \n3. Menghapus Data Pesanan Hotel deLight \n0. Keluar \n\nPilihan Anda : ");
         Integer menu = scan.nextInt();
-        switch (menu) {
-            case 0:
-                System.out.println("------------------------------------------------------");
-                System.out.println("              Anda telah berhasil Keluar!             ");
-                System.out.println("------------------------------------------------------");
-                HalamanAwal.LoginHotel();
-                break;
-            case 1:
-                menuBuatPesananKamar();
-                HalamanAwal.kembaliKeMenu();
-            case 2:
-                menuLihatPesananKamar();
-                HalamanAwal.kembaliKeMenu();
-            case 3:
-                menuHapusPesananKamar();
-                HalamanAwal.kembaliKeMenu();
-            default:
-                System.out.println("Pilihan Anda tidak ada dalam menu!");
-                HalamanAwal.kembaliKeMenu();
+        if (menu == 0) {
+            System.out.println("------------------------------------------------------");
+            System.out.println("              Anda telah berhasil Keluar!             ");
+            System.out.println("------------------------------------------------------");
+            HalamanAwal.LoginHotel();
+        } if (menu == 1) {
+            menuBuatPesananKamar();
+            HalamanAwal.kembaliKeMenu();
+        } if (menu == 2) {
+            menuLihatPesananKamar();
+            HalamanAwal.kembaliKeMenu();
+        } if (menu == 3) {
+            menuHapusPesananKamar();
+            HalamanAwal.kembaliKeMenu();
+        } else {
+            System.out.println("Pilihan Anda tidak ada dalam menu!");
+            HalamanAwal.kembaliKeMenu();
         }
     }
 
