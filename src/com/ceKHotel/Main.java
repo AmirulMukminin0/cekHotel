@@ -1,8 +1,9 @@
-package com.ceKVilla;
+package com.ceKHotel;
 
+
+import com.ceKHotel.models.*;
 import java.sql.SQLException;
 import java.util.Scanner;
-import com.ceKVilla.models.HalamanAwal;
 
 public class Main {
     static Scanner scan = new Scanner(System.in);
