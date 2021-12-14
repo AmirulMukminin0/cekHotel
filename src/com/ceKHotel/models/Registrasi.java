@@ -29,7 +29,7 @@ public class Registrasi extends BaseRegis {
     }
 
     @Override
-    public void regitrasiCs() throws SQLException {
+    public void registrasiCs() throws SQLException {
         HalamanAwal menu = new HalamanAwal();
         try {
             System.out.println("\n\nREGISTRASI");

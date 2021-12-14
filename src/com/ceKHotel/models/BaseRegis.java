@@ -7,5 +7,5 @@ public abstract class BaseRegis extends BaseModel{
         super();
     }
 
-    public abstract void regitrasiCs() throws SQLException;
+    public abstract void registrasiCs() throws SQLException;
 }
