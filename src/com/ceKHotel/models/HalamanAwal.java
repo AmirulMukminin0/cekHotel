@@ -15,20 +15,18 @@ public class HalamanAwal {
         System.out.println("======================================================");
         System.out.print("\nMENU : \n1. Login \n2. Registrasi \n0. Keluar \n\nPilihan Anda : ");
         Integer open = scan.nextInt();
-        switch (open) {
-            case 0:
-                System.out.println("\n-------------------------------------------------------------");
-                System.out.println("                 Anda telah berhasil keluar!                 ");
-                System.exit(0);
-                break;
-            case 1:
-                log.loginCs();
-            case 2:
-                reg.regitrasiCs();
-                halamanMenu.menuHotel();
-            default:
-                System.out.println("\nPilihan Anda tidak ada dalam menu!");
-                kembaliLogin();
+        if (open == 0) {
+            System.out.println("\n-------------------------------------------------------------");
+            System.out.println("                 Anda telah berhasil keluar!                 ");
+            System.exit(0);
+        } if (open == 1) {
+            log.loginCs();
+        } if (open == 2) {
+            reg.registrasiCs();
+            halamanMenu.menuHotel();
+        } else {
+            System.out.println("\nPilihan Anda tidak ada dalam menu!");
+            kembaliLogin();
         }
     }
 
